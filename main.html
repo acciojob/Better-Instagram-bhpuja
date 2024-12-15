@@ -1,11 +1,52 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Repositioning</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        #grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            width: 90%;
+            margin: 50px auto;
+        }
+
+        .draggable {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            cursor: move;
+        }
+
+        #div1 {
+            background-image: url('image1.jpg');
+        }
+
+        #div2 {
+            background-image: url('image2.jpg');
+        }
+
+        #div3 {
+            background-image: url('image3.jpg');
+        }
+
+        #div4 {
+            background-image: url('image4.jpg');
+        }
+
+        #div5 {
+            background-image: url('image5.jpg');
+        }
+
+        #div6 {
+            background-image: url('image6.jpg');
+        }
+    </style>
 </head>
 <body>
     <div id="grid-container">
@@ -16,8 +57,7 @@
         <div id="div5" class="draggable" draggable="true"></div>
         <div id="div6" class="draggable" draggable="true"></div>
     </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
+
 

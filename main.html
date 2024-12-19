@@ -3,53 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Repositioning</title>
+    <title>Better Instagram</title>
     <style>
-        #grid-container {
+        /* Styling for the container of all the divs */
+        .container {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(3, 200px);
+            grid-template-rows: repeat(2, 200px);
             gap: 10px;
-            width: 90%;
-            margin: 50px auto;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
         }
 
+        /* Styling for each image div */
         .draggable {
-            width: 100%;
+            width: 200px;
             height: 200px;
             background-size: cover;
             background-position: center;
-            border: 2px solid #ccc;
-            border-radius: 5px;
+            border: 2px solid #000;
             cursor: move;
+            transition: transform 0.2s;
         }
 
         #div1 {
-            background-image: url('image1.jpg');
+            background-image: url('https://via.placeholder.com/200?text=Image+1');
         }
 
         #div2 {
-            background-image: url('image2.jpg');
+            background-image: url('https://via.placeholder.com/200?text=Image+2');
         }
 
         #div3 {
-            background-image: url('image3.jpg');
+            background-image: url('https://via.placeholder.com/200?text=Image+3');
         }
 
         #div4 {
-            background-image: url('image4.jpg');
+            background-image: url('https://via.placeholder.com/200?text=Image+4');
         }
 
         #div5 {
-            background-image: url('image5.jpg');
+            background-image: url('https://via.placeholder.com/200?text=Image+5');
         }
 
         #div6 {
-            background-image: url('image6.jpg');
+            background-image: url('https://via.placeholder.com/200?text=Image+6');
+        }
+
+        /* Visual indication when dragging */
+        .dragging {
+            opacity: 0.5;
         }
     </style>
 </head>
 <body>
-    <div id="grid-container">
+
+    <div class="container">
         <div id="div1" class="draggable" draggable="true"></div>
         <div id="div2" class="draggable" draggable="true"></div>
         <div id="div3" class="draggable" draggable="true"></div>
@@ -57,6 +67,73 @@
         <div id="div5" class="draggable" draggable="true"></div>
         <div id="div6" class="draggable" draggable="true"></div>
     </div>
+
+    <script>
+        // Get all the draggable elements
+        const draggables = document.querySelectorAll('.draggable');
+        const container = document.querySelector('.container');
+
+        // Add event listeners to each draggable element
+        draggables.forEach(draggable => {
+            draggable.addEventListener('dragstart', dragStart);
+            draggable.addEventListener('dragend', dragEnd);
+            draggable.addEventListener('dragover', dragOver);
+            draggable.addEventListener('dragenter', dragEnter);
+            draggable.addEventListener('dragleave', dragLeave);
+            draggable.addEventListener('drop', dragDrop);
+        });
+
+        let draggedElement = null;
+
+        // Drag Start - Mark the element being dragged
+        function dragStart(e) {
+            draggedElement = e.target;
+            setTimeout(() => {
+                e.target.classList.add('dragging');
+            }, 0);
+        }
+
+        // Drag End - Remove the "dragging" class
+        function dragEnd(e) {
+            e.target.classList.remove('dragging');
+            draggedElement = null;
+        }
+
+        // Drag Over - Allow the drop
+        function dragOver(e) {
+            e.preventDefault();
+        }
+
+        // Drag Enter - Highlight the drop target
+        function dragEnter(e) {
+            const draggable = document.querySelector('.dragging');
+            if (e.target.classList.contains('draggable') && e.target !== draggable) {
+                e.target.style.border = '2px dashed #00f';
+            }
+        }
+
+        // Drag Leave - Remove the highlight
+        function dragLeave(e) {
+            e.target.style.border = 'none';
+        }
+
+        // Drop - Swap the images between the dragged element and the target
+        function dragDrop(e) {
+            e.preventDefault();
+            const draggable = document.querySelector('.dragging');
+            if (e.target.classList.contains('draggable') && e.target !== draggable) {
+                const draggedImage = draggedElement.style.backgroundImage;
+                const targetImage = e.target.style.backgroundImage;
+
+                // Swap the background images
+                draggedElement.style.backgroundImage = targetImage;
+                e.target.style.backgroundImage = draggedImage;
+
+                e.target.style.border = 'none';
+            }
+        }
+    </script>
+
 </body>
 </html>
 

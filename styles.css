@@ -1,45 +1,31 @@
-/* Styling for the container of all the divs */
-.container {
-    display: grid;
-    grid-template-columns: repeat(3, 200px);
-    grid-template-rows: repeat(2, 200px);
-    gap: 10px;
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
+    min-height: 100vh;
+    background-color: #f3f3f3;
+    margin: 0;
 }
 
-/* Styling for each image div */
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 150px);
+    gap: 10px;
+}
+
 .draggable {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
+    border: 2px solid #ccc;
     background-size: cover;
     background-position: center;
-    border: 2px solid #000;
-    cursor: move;
-    transition: transform 0.2s;
+    cursor: grab;
 }
 
-#div1 {
-    background-image: url('https://via.placeholder.com/200?text=Image+1');
-}
-
-#div2 {
-    background-image: url('https://via.placeholder.com/200?text=Image+2');
-}
-
-#div3 {
-    background-image: url('https://via.placeholder.com/200?text=Image+3');
-}
-
-#div4 {
-    background-image: url('https://via.placeholder.com/200?text=Image+4');
-}
-
-#div5 {
-    background-image: url('https://via.placeholder.com/200?text=Image+5');
-}
-
-#div6 {
-    background-image: url('https://via.placeholder.com/200?text=Image+6');
-}
+#div1 { background-image: url('https://via.placeholder.com/150?text=Image+1'); }
+#div2 { background-image: url('https://via.placeholder.com/150?text=Image+2'); }
+#div3 { background-image: url('https://via.placeholder.com/150?text=Image+3'); }
+#div4 { background-image: url('https://via.placeholder.com/150?text=Image+4'); }
+#div5 { background-image: url('https://via.placeholder.com/150?text=Image+5'); }
+#div6 { background-image: url('https://via.placeholder.com/150?text=Image+6'); }

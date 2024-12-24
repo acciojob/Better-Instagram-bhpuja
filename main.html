@@ -4,65 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Better Instagram</title>
-    <style>
-        /* Styling for the container of all the divs */
-        .container {
-            display: grid;
-            grid-template-columns: repeat(3, 200px);
-            grid-template-rows: repeat(2, 200px);
-            gap: 10px;
-            justify-content: center;
-            align-items: center;
-            margin-top: 50px;
-        }
-
-        /* Styling for each image div */
-        .draggable {
-            width: 200px;
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-            border: 2px solid #000;
-            cursor: move;
-            transition: transform 0.2s;
-        }
-
-        #div1 {
-            background-image: url('https://via.placeholder.com/200?text=Image+1');
-        }
-
-        #div2 {
-            background-image: url('https://via.placeholder.com/200?text=Image+2');
-        }
-
-        #div3 {
-            background-image: url('https://via.placeholder.com/200?text=Image+3');
-        }
-
-        #div4 {
-            background-image: url('https://via.placeholder.com/200?text=Image+4');
-        }
-
-        #div5 {
-            background-image: url('https://via.placeholder.com/200?text=Image+5');
-        }
-
-        #div6 {
-            background-image: url('https://via.placeholder.com/200?text=Image+6');
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <div class="container">
-        <div id="div1" class="draggable" draggable="true"></div>
-        <div id="div2" class="draggable" draggable="true"></div>
-        <div id="div3" class="draggable" draggable="true"></div>
-        <div id="div4" class="draggable" draggable="true"></div>
-        <div id="div5" class="draggable" draggable="true"></div>
-        <div id="div6" class="draggable" draggable="true"></div>
+        <div class="draggable" id="div1" draggable="true"></div>
+        <div class="draggable" id="div2" draggable="true"></div>
+        <div class="draggable" id="div3" draggable="true"></div>
+        <div class="draggable" id="div4" draggable="true"></div>
+        <div class="draggable" id="div5" draggable="true"></div>
+        <div class="draggable" id="div6" draggable="true"></div>
     </div>
-
+    <script src="script.js"></script>
 </body>
 </html>
 
